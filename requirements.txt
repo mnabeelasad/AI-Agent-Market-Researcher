@@ -14,7 +14,7 @@ langchain-core==0.1.53
 langchain-community==0.0.38
 langchain-openai==0.1.1
 langchain-text-splitters==0.0.2
-faiss-cpu==1.8.0  # Updated to an available version
+faiss-cpu==1.12.0 # Updated to an available version
 tiktoken==0.6.0
 
 # Document Parsing
