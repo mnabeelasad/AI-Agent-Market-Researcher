@@ -447,7 +447,7 @@
 
 #         async for chunk in rag_chain.astream({"input": question}):
 #             yield chunk
-
+import httpx
 import io
 import docx
 import re
@@ -456,7 +456,7 @@ from openai import OpenAI, AsyncOpenAI
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain.chains import create_stuff_documents_chain
+from langchain.chains.combine_documents.stuff import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_core.runnables import RunnablePassthrough
@@ -469,7 +469,7 @@ class ReportAgent:
         if not openai_api_key:
             raise ValueError("OpenAI API key is missing.")
         self.client = OpenAI(api_key=openai_api_key)
-        self.async_client = AsyncOpenAI(api_key=openai_api_key)
+        self.async_client = AsyncOpenAI(api_key=openai_api_key, http_client=httpx.AsyncClient(proxies=None))
         self.retriever = None
         self.question_answer_chain = None
         self.report_context = ""
