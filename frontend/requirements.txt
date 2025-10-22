@@ -1,0 +1,5 @@
+# UI Framework
+streamlit
+
+# HTTP Client to communicate with backend
+requests
