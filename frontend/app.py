@@ -128,7 +128,10 @@ st.set_page_config(
     layout="wide"
 )
 
-BACKEND_URL = "BACKEND_URL = https://ai-agent-backend-8z7l.onrender.com"
+# BACKEND_URL = "BACKEND_URL = https://ai-agent-backend-8z7l.onrender.com"
+# This is the correct way
+BACKEND_URL = "https://ai-agent-backend-8z7l.onrender.com"
+
 
 if "report_generated" not in st.session_state:
     st.session_state.report_generated = False
